@@ -377,6 +377,8 @@ class Entry extends React.Component {
       zone = "Zones " + this.props.item.zones[0] + " & " + this.props.item.zones[1]
     }
     
+    const a_url = "https://en.wikipedia.org/" + this.props.item.url;
+    
     const anyConns = () => {
       if (this.props.item.connections.length > 0) {
         return "divider dividerConn";
@@ -392,6 +394,7 @@ class Entry extends React.Component {
     }
     
     return (
+    <a href={a_url} target="_blank">
       <div className="item">
         <div className="img_sect" style={styles}></div>
         <div className="station_content">
@@ -423,6 +426,7 @@ class Entry extends React.Component {
             </div>
         </div>
       </div>
+      </a>
     );
   }
 }
