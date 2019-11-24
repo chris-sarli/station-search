@@ -70,7 +70,7 @@ a {
 }
 
 .connections img {
-  height: 18px;
+  width: 18px;
   margin-right: 8px;
   margin-bottom: 3px;
 }
@@ -391,7 +391,7 @@ select {
 
 .header div {
   margin-top: 16px;
-  text-transform: uppercase;
+/*  text-transform: uppercase;*/
 }
 
 .sortby {
@@ -419,7 +419,7 @@ select {
 
 .stations {
   width: 100vw;
-  padding: 70px;
+  padding: 20px;
   padding-top: 0px;
   display: flex;
   flex-direction: row;
@@ -466,7 +466,6 @@ font-size: 17px;}
 
 .station_name {
   font-size: 21px;
-  height: 25px;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -493,4 +492,60 @@ font-size: 17px;}
 
 .App-link {
   color: #09d3ac;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .header img {
+    margin: 0;
+    width: 80px;
+  }
+  
+  .searcher {
+    box-sizing: border-box;
+    width: 95%;
+  }
+  
+  .linebullet {
+    font-size: 22px;
+  }
+  
+  .zonessel {
+    flex-wrap: wrap;
+  }
+  
+  .zonesel {
+    font-size: 22px;
+    width: 30%;
+    margin: 5px;
+    height: 40px;
+  }
+  
+  .stations {
+    box-sizing: border-box;
+    padding: 0;
+  }
+  
+  .stations > div {
+    margin-left: 0;
+    box-sizing: border-box;
+    margin-right: 0;
+    width: 95%;
+  }
+  
+  .item {
+    width: 95%;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  
+  .img_sect {
+    width: 200px;
+    height: auto;
+    background-size: fill;
+  }
 }
