@@ -2,7 +2,7 @@ import React from 'react';
 
 import ResList from './ResList.js';
 
-class ItemList extends React.Component {
+class SearchTool extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -65,6 +65,7 @@ class ItemList extends React.Component {
 		}
 	}
 	
+	// Change the filter by updated the query to match the inputted text
 	filterList(e) {
 		if (e === -1) {
 			this.setState({items: this.state.init});
@@ -74,6 +75,7 @@ class ItemList extends React.Component {
 		}
 	}
 	
+	// Change the filter by turning a zone on or off
 	toggleZone(e) {
 		let ne;
 		if (this.state.zones.includes(e)) {
@@ -86,6 +88,7 @@ class ItemList extends React.Component {
 		this.setState({'zones': ne});
 	}
 	
+	// Change the filter by turning a line on or off
 	toggleLine(e) {
 		let ne;
 		if (this.state.lines.includes(e)) {
@@ -99,6 +102,7 @@ class ItemList extends React.Component {
 		this.setState({'lines': ne});
 	}
 	
+	// Toggle the advanced search panel
 	toggleAdv() {
 		this.setState({adv: !this.state.adv});
 		if (this.state.adv) {
@@ -107,6 +111,10 @@ class ItemList extends React.Component {
 		}
 	}
 	
+	/* Determine classes for given lineselector
+	 * input - key
+	 * cn - className corresponding to line
+	 */
 	lbView(input, cn) {
 		if (this.state.lines.includes(input)) {
 				return "linebullet " + cn;
@@ -116,6 +124,7 @@ class ItemList extends React.Component {
 		}
 	}
 	
+	// Clear the filter/sort
 	clear() {
 			this.setZones('all');
 			this.setLines('all');
@@ -203,4 +212,4 @@ class ItemList extends React.Component {
 	}
 }
 
-export default ItemList;
+export default SearchTool;

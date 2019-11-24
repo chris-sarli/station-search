@@ -32,6 +32,7 @@ class ResList extends React.Component {
 	
 		let filt = alph_asc;
 		
+		// Set sorting function
 		switch (this.props.sortby) {
 			case "alph":
 				filt = alph_asc;
@@ -55,20 +56,39 @@ class ResList extends React.Component {
 				filt = alph_asc;
 				break;
 		}
+		
+		// Create teh filtered list
 		let show = 
 			this.props.init
-			.filter(i => i.name.toLowerCase().search(("" + this.props.crit.q.replace("\\","")).toLowerCase()) !== -1)
-			.filter(i => i.lines.filter(val => this.props.lines.includes(val)).length > 0)
-			.filter(i => i.zones.filter(val => this.props.zones.map(r => "" + r).includes(val)).length > 0)
+			.filter(i => 
+				i.name.toLowerCase()
+				.search(("" + this.props.crit.q
+					.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'))
+					.toLowerCase()) !== -1)
+			.filter(i => i.lines.filter(val => this.props.lines
+				.includes(val)).length > 0)
+			.filter(i => 
+				i.zones.filter(val => this.props.zones.map(r => "" + r)
+					.includes(val)).length > 0)
 			.map(i => i.name);
 		
+		// Determine wether a given station item should be shown
 		const shouldShow = (e) => {
 			return show.includes(e.name);
 		}
 		
-			let ret = this.props.init.sort(alph_asc).sort(filt).map(i => (<div key={i.name} style={{display: shouldShow(i) ? 'block' : 'none'}}><Entry item={i} /></div>));
+		// Create the entries
+		let ret = this.props.init.sort(alph_asc).sort(filt)
+			.map(i => 
+				(<div
+					key={i.name}
+					style={{display: shouldShow(i) ? 'block' : 'none'}}>
+				<Entry item={i} /></div>));
 			
-			 return (<React.Fragment><div className="count">{show.length} result{(show.length === 1) ? "" : "s"}</div>
+		return (<React.Fragment>
+			<div className="count">
+				{show.length} result{(show.length === 1) ? "" : "s"}
+			</div>
 			<div className="stations">{ret}</div></React.Fragment>);
 	}
 }

@@ -5,22 +5,29 @@ import ServiceLine from './ServiceLine.js';
 class Entry extends React.Component {
 
 	render() {
-		const iu = this.props.item.img;
+				
+		// Styles for image background of div
 		let styles = {
-			"backgroundImage": 'url(' + iu + ')',
+			"backgroundImage": 'url(' + this.props.item.img + ')',
 			"backgroundSize": "cover"
 		}
 		
+		// Create lines list
 		let lines = this.props.item.lines.map(l => <ServiceLine line={l} key={l} />);
+		
 		let zone;
+		
+		// Zone text subheader
 		if (this.props.item.zones.length === 1) {
 			zone = "Zone " + this.props.item.zones[0]
 		} else {
 			zone = "Zones " + this.props.item.zones[0] + " & " + this.props.item.zones[1]
 		}
 		
+		// Wikipedia page to open in new tab
 		const a_url = "https://en.wikipedia.org/" + this.props.item.url;
 		
+		// Determines if there are any connections to show
 		const anyConns = () => {
 			if (this.props.item.connections.length > 0) {
 				return "divider dividerConn";
@@ -28,6 +35,7 @@ class Entry extends React.Component {
 			return "notconn";
 		}
 		
+		// Determines whether a connection should be shown
 		const connshow = (c) => {
 			if (this.props.item.connections.includes(c)) {
 				return "connections"
