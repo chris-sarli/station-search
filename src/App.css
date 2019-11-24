@@ -204,6 +204,7 @@ a {
 .filterControls div {
   margin-left: 15px;
   color: #2070b0;
+  text-align: center;
   cursor: pointer;
 }
 
@@ -520,7 +521,9 @@ font-size: 17px;}
   
   .zonesel {
     font-size: 22px;
-    width: 30%;
+    min-width: 80px;
+    max-width: 120px;
+    width: 28%;
     margin: 5px;
     height: 40px;
   }
