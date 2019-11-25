@@ -195,7 +195,7 @@ class SearchTool extends React.Component {
 										<option value="ridership_lo">Ridership (Lowest first)</option>
 										<option value="ridership_hi">Ridership (Highest first)</option>
 										<option value="age_lo">Station Age (Oldest first)</option>
-										<option value="age_hi">Station Age (Highest first)</option>
+										<option value="age_hi">Station Age (Youngest first)</option>
 									</select>
 								</div>
 							</div>
