@@ -27,6 +27,10 @@
         │                    Deployed application:                     │        
         │             https://station-search.herokuapp.com             │        
         ├ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─│        
+        │ To run locally, first run                                    │        
+        │                                                              │        
+        │     npm install                                              │        
+        │                                                              │        
         │ Application can be run with a development server by running: │        
         │                                                              │        
         │     npm start                                                │        
@@ -107,6 +111,7 @@ and rendering the result block. Tube services are further rendered with a list
 of ServiceLine components, which are passed a line name to represent as a prop. 
                                                                                 
 Here is a summarizing diagram of the components:                                
+                                                                                
                            ┌───────────────────────┐                            
                            │          App          │                            
                            │imports data from JSON │                            
