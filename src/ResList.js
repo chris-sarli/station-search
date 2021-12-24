@@ -63,7 +63,7 @@ class ResList extends React.Component {
 			.filter(i => 
 				i.name.toLowerCase()
 				.search(("" + this.props.crit.q
-					.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'))
+					.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&'))
 					.toLowerCase()) !== -1)
 			.filter(i => i.lines.filter(val => this.props.lines
 				.includes(val)).length > 0)
